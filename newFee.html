@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Summer school web exercise</title>
+
+<!-- necessary css files -->
+<link type="text/css" rel="stylesheet" href="css/cssMain.css">
+<link href="css/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.ui.datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.ui.datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="css/validate.css" rel="stylesheet" type="text/css">
+
+<!-- necessary js files -->
+<script type="text/javascript" scr="js/jquery.ui-1.10.4.datepicker.min.js"></script>
+<script type="text/javascript" src="js/jquery_lib.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/validator.js"></script>
+<script src="js/jsMain.js"></script>
+
+
+
+<script>
+	
+$(document).ready(function(){
+	
+	$("#date").hide();
+
+	$("#date").datepicker({
+		showOn: "button",
+		buttonImage: "images/calendar_link.png",
+		buttonImageOnly: false,
+		dateFormat: "dd-mm-yy",
+		changeDay: true,
+		changeMonth: true,
+		changeYear: true,
+		yearRange: "-80:+00",
+		altField: "#newdate"
+	});
+	
+	$("#date").change(function(){
+		var getBirth = $(this).val();
+		$('#loadAgeCalc').load("php_files/getAge.php?dateIn="+getBirth);
+	});
+
+	//validation of the form
+	$('#identify').validate();
+});
+	
+
+</script>
+
+
+</head>
+
+<body id=body>
+
+	<div class="ui-datepicker-multi" id="container">
+		<div id="header">
+			REGISTRATION FORM
+		</div>
+
+		<!-- include the sidebar menu-->
+		<?php
+			include("php_files/sidebar.php");
+		?>
+
+		<div id="content">
+			<div><img src="images/list.png" id="menu" width="20px" alt="list"></div>
+			<div id="container">
+				<div id="explanation">
+				<h1> Add a new payment </h1>
+				<p> Once you are already registered in our database, you are able to add new payments in your record. </p>
+				<p> It is necessary that you insert your first name, your last name and your day of birth in order to allow us identify you.</p>
+				<p> If you are not registered yet, you can do so <a href="registrationPage.php">here</a>!</p>
+				</div>
+				<div id="fee_form">
+					<!-- once the form is submitted, the information will be check so as to see if the user is registered in the database.
+					if so, he would be able to add the payment. otherwise, redirected to the homepage-->
+					<form action="php_files/searchId.php" method="post" id="identify" enctype="multipart/form-data">
+						<table class="bordered" border="2" align="center" cellpadding="6" cellspacing="6" id="contactTable">
+							<tbody>
+							<tr>
+								<th colspan="4"> IDENTIFY YOURSELF </th>
+							</tr>
+							<tr>
+								<td align="right"> First Name </td>
+								<td><input name="firstName" type="text" id="firstName" val="" required/></td>
+								<td align="right">Last Name</td>
+								<td ><input name="lastName" type="text" id="lastName" val="" required/></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="right">DoB <input type="text" id="date"></td>
+								<td colspan="2"><input name="newdate" type="text" id="newdate" val="" required/></td>
+							</tr>
+							<tr>
+								<td align="center" colspan="4"><input name="login" type="submit" id="login" value="NEXT STEP: ADD NEW PAYMENT" val="register"/> </td>
+							</tr>
+							</tbody>
+						</table>
+						
+					</form>
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="footer"> Aina Luis © - UCL 2022 </div>
+		<div id="loadAgeCalc"> </div>
+		
+
+
+	</div>
+</body>
+</html>
