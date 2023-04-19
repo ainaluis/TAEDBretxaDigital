@@ -1,14 +1,26 @@
 // JavaScript Document
-function aplicarcanvi(){
-      $('#prova').css('background-color', 'blue');
-	$('#footer').css('font-size', '12px');
-}
-
 $(document).ready(function(){
-	/*-console.log( "ready! I tell you" );
-	$("tr:even").click(function() { alert("hi you") });*/
-	$("tr:odd").css("background-color", "#EFF1F1");
-	$("#navBack").click(function() { location.href = 'registrationPage.html' });
+  if (document.location.toString().substr(-21) == 'presentaciogrups.html'){
+    document.getElementById("g").innerHTML = localStorage.getItem("grup");
+  }
+  //Guardem el grup dels concursants
+  function guardarGrup(g){
+    location.href = 'presentaciogrups.html';
+    localStorage.setItem("grup", g);
+  }
+
+  $('#grup1').click(function() {guardarGrup('1')});
+  $('#grup2').click(function() {guardarGrup('2')});
+  $('#grup3').click(function() {guardarGrup('3')});
+  $('#grup4').click(function() {guardarGrup('4')});
+  $('#grup5').click(function() {guardarGrup('5')});
+
+  $('#play').click(function() {location.href = 'fase1.html';});
+  $('#fin1').click(function() {location.href = 'fase2.html';});
+  $('#fin2').click(function() {location.href = 'fase3.html';});
+  $('#fin3').click(function() {location.href = 'fase4.html';});
+  $('#fin4').click(function() {location.href = 'fase5.html';});
+  $('#fin5').click(function() {location.href = 'final.html';});
 
   function aa (){
 		document.getElementById("valorVariable").innerHTML = "hola mundo";
@@ -20,42 +32,17 @@ $(document).ready(function(){
   function cc (){
     nombre = document.getElementById("nombre").value;
     if (nombre == 'Aina'){
-      location.href = 'joc.html'
+      location.href = 'index.html'
     } else if (nombre == 'Uri') {
       location.href = 'registrationSuccess.html'
     }
     //document.getElementById("valorVariable2").innerHTML = nombre;
     $('#first_form').hide();
   }
-  $('#guardarNombre').click(function(){ cc() });
-
-	$("#start").click(function() { aa()});
-
-    //location.href = 'registrationSuccess.html' });
-	$("#newfee").click(function() { location.href = 'newFee.html' });
-
-	$('.sidebar').hide();
-
-	$('#menu').click(function(){
-		$('.sidebar').toggle({direction:"left"});
-	});
-
-	$('#close').click(function(){
-		$('.sidebar').hide({direction:"left"});
-	});
-
-	$('#menu').click(function(){
-		aplicarcanvi();
-	});
-
-	$('#truncate').click(function(){ //alert("clicked");
-		$('#trucateTable').load("php_files/emptyTables.php");
-	});
 
   document.location = document.getElementById('yourinputfield').value() + '.html';
   var nombre = document.getElementById("nombre").value;
   document.getElementById("valorVariable2").innerHTML = nombre;
-  //document.getElementById("valorVariable").innerHTML = variable;
 
 
 

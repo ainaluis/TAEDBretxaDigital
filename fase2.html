@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRETXA DIGITAL</title>
+
+<link type="text/css" rel="stylesheet" href="css/cssMain.css"/>
+<script src="js/jquery_lib.js"></script>
+<script src="js/jsMain.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+	$('#activitat').hide();
+	$('#resultats').hide();
+	$('#formulari').hide();
+	$('#formularierror').hide();
+	$('#usuarimalament').hide();
+	$('#contrasenyamalament').hide();
+
+	function finalFase(){
+		$('#activitat').hide();
+		$('#resultats').show();
+	}
+
+	function iniciFase(){
+		$('#enunciat').hide();
+		$('#activitat').show();
+		let temps = 200;
+		let comptador = setInterval(function() {
+			let mins = Math.floor(temps / 60);
+			let segs = temps % 60;
+			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
+			if (temps == 0) {
+				clearInterval(comptador);
+				$('#activitat').hide();
+	      $('#resultats').show();
+			}
+			temps--;
+		}, 1000);
+	}
+
+	function validarLogin() {
+		let correcte = 2;
+		let usuari = document.getElementById("usuari").value;
+		let contrasenya = document.getElementById("contrasenya").value;
+		if (usuari == localStorage.getItem("grup")){
+			$('#usuarimalament').hide();
+		} else {
+			$('#usuarimalament').show();
+			correcte = correcte-1;
+		}
+		if (contrasenya == 'AAA'){
+			$('#contrasenyamalament').hide();
+		} else {
+			$('#contrasenyamalament').show();
+			correcte = correcte-1;
+		}
+		if (correcte==2){
+			$('#formulari').show();
+			$('#traduccions').hide();
+
+		}
+	}
+
+	function validarPassaport() {
+	  const inputs = document.getElementsByTagName("input");
+		let errors = 0;
+	  for (let i = 0; i < inputs.length; i++) {
+	    if (inputs[i].value === "") {
+				errors = errors +1;
+	    }
+	  }
+		if (errors > 0){
+			document.getElementById("buits").innerHTML = errors;
+			$('#formularierror').show();
+		}
+		if (errors == 0){
+			$('#formularierror').hide();
+			finalFase();
+		}
+
+	}
+
+	$('#fase2').click(function() {iniciFase()});
+	$('#validar').click(function() {validarLogin()});
+	$('#passaport').click(function() {validarPassaport()});
+
+
+});
+
+
+</script>
+
+</head>
+
+<body id="body">
+		<div id="header">
+			<p id=titol>BRETXA DIGITAL</p>
+			
+			<p id=titol>FASE 2. VIATGE A ALEMANYA PER UNA CONFERÈNCIA</p>
+		</div>
+
+		<div id="content">
+			<div id="container">
+
+				<h1> Fase 2 </h1>
+
+				<div id=enunciat>
+					Explicació de la Fase 2. <br>
+
+					<br>
+					<br>
+					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
+				<p> <img src="images/play.png" id="fase2" width="40px"> </p>
+				</div>
+
+				<div id=activitat>
+
+					<h2 id=timer>Final de l'activitat en <span id="comptador"></span></h2>
+					<br>
+					<br>
+
+					<table id=traduccions>
+						<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <img src="images/login.png" width="100px"></td>
+								<td colspan=1 width=20px> </td>
+								</tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="text" id="usuari" placeholder="Usuari"><br> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="password" id="contrasenya" placeholder="Contrasenya"><br><br> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+							  <td> <input type="button" id="validar" value="Entra" > </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+
+								<tr rowspan=2 height=20px> </tr>
+							</form>
+					</table>
+					<table id=formulari>
+						<form>
+								<tr rowspan=7 height=20px> </tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td colspan=5> <h2 font-size=16px> Obteniu el vostre passaport COVID </h2></td>
+								<td colspan=1 width=20px> </td>
+								</tr>
+								<tr rowspan=7 height=20px> </tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td colspan=5> <img src="images/passport.png" width="80px"> <br> <br> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> Participant 1 </td>
+								<td> Participant 2 </td>
+								<td> Participant 3 </td>
+								<td> Participant 4 </td>
+								<td> Participant 5 </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="text" id="nom" placeholder="Nom"> </td>
+								<td> <input type="text" id="nom" placeholder="Nom"> </td>
+								<td> <input type="text" id="nom" placeholder="Nom"> </td>
+								<td> <input type="text" id="nom" placeholder="Nom"> </td>
+								<td> <input type="text" id="nom" placeholder="Nom"> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="text" id="cognom" placeholder="Cognoms"> </td>
+								<td> <input type="text" id="cognom" placeholder="Cognoms"> </td>
+								<td> <input type="text" id="cognom" placeholder="Cognoms"> </td>
+								<td> <input type="text" id="cognom" placeholder="Cognoms"> </td>
+								<td> <input type="text" id="cognom" placeholder="Cognoms"> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr rowspan=7 height=20px> </tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td colspan=5> <input type="button" id="passaport" value="Sol·licita document" > </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+								<tr rowspan=7 height=20px> </tr>
+							</form>
+					</table>
+					<br>
+					<br>
+					<div id=formularierror> Assegura't que has omplert tots els camps. Tens <span id="buits"></span> espais buits.</div>
+					<div id=usuarimalament> L'usuari no és correcte. Assegura't que introdueixes el dígit del grup al qual pertanys. </div>
+					<div id=contrasenyamalament> La contrasenya no és correcte. Torna-ho a intentar o segueix sense començar sessió. </div>
+						<br>
+						<br>
+						<br>
+					</div>
+
+
+
+				<div id=resultats>
+					<h2> Resultats de la Fase 2</h2>
+					<br>
+					<br>
+					RRRR
+
+					<p> <img src="images/play.png" id="fin2" width="40px"> </p>
+				</div>
+
+
+
+		</div>
+
+		<div id="footer">
+			GCED - UPC 2023
+		</div>
+
+</body>
+</html>

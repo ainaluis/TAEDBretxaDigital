@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRETXA DIGITAL</title>
+
+<link type="text/css" rel="stylesheet" href="css/cssMain.css"/>
+<script src="js/jquery_lib.js"></script>
+<script src="js/jsMain.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	if (localStorage.getItem("grup") == '1'){
+		$('#def1').show();
+		$('#def2').hide();
+		$('#def3').hide();
+		$('#def4').hide();
+		$('#def5').hide();
+	}
+
+	if (localStorage.getItem("grup") == '2'){
+		$('#def2').show();
+		$('#def1').hide();
+		$('#def3').hide();
+		$('#def4').hide();
+		$('#def5').hide();
+	}
+
+	if (localStorage.getItem("grup") == '3'){
+		$('#def3').show();
+		$('#def1').hide();
+		$('#def2').hide();
+		$('#def4').hide();
+		$('#def5').hide();
+	}
+
+	if (localStorage.getItem("grup") == '4'){
+		$('#def4').show();
+		$('#def1').hide();
+		$('#def2').hide();
+		$('#def3').hide();
+		$('#def5').hide();
+	}
+
+	if (localStorage.getItem("grup") == '5'){
+		$('#def5').show();
+		$('#def1').hide();
+		$('#def2').hide();
+		$('#def3').hide();
+		$('#def4').hide();
+	}
+
+
+});
+
+
+</script>
+
+</head>
+
+<body id="body">
+		<div id="header">
+			<p id=titol>BRETXA DIGITAL</p>
+
+			<p id=titol>PRESENTACIÓ DELS GRUPS</p>
+
+		</div>
+
+		<div id="content">
+			<div id="container">
+
+				<h1> Ets del grup <span id="g"></span>! </h1>
+
+				<p id=def1> DEFINICIÓ grup 1.</p>
+
+				<p id=def2> DEFINICIÓ grup 2.</p>
+
+				<p id=def3> DEFINICIÓ grup 3.</p>
+
+				<p id=def4> DEFINICIÓ grup 4.</p>
+
+				<p id=def5> DEFINICIÓ grup 5.</p>
+
+				<p> <img src="images/play.png" id="play" width="40px"> </p>
+
+
+
+		</div>
+
+		<div id="footer">
+			GCED - UPC 2023
+		</div>
+
+</body>
+</html>

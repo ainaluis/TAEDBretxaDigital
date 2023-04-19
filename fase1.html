@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRETXA DIGITAL</title>
+
+<link type="text/css" rel="stylesheet" href="css/cssMain.css"/>
+<script src="js/jquery_lib.js"></script>
+<script src="js/jsMain.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	$('#activitat').hide();
+	$('#resultats').hide();
+	$('#correcte1').hide();
+	$('#malament1').hide();
+	$('#correcte2').hide();
+	$('#malament2').hide();
+	$('#correcte3').hide();
+	$('#malament3').hide();
+	$('#correcte4').hide();
+	$('#malament4').hide();
+	$('#correcte5').hide();
+	$('#malament5').hide();
+	document.getElementById("num").innerHTML = localStorage.getItem("num");
+
+	function iniciFase(){
+		localStorage.setItem("num", "");
+		$('#enunciat').hide();
+		$('#activitat').show();
+		let temps = 100;
+		let comptador = setInterval(function() {
+			let mins = Math.floor(temps / 60);
+			let segs = temps % 60;
+			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
+			if (temps == 0) {
+				clearInterval(comptador);
+				finalFase();
+			}
+			temps--;
+		}, 1000);
+	}
+
+	function finalFase(){
+		$('#activitat').hide();
+		$('#resultats').show();
+	}
+
+	$('#fase1').click(function() {iniciFase()});
+
+	function novaTraduccio(idx){
+		let correctes = localStorage.getItem("num");
+		let trobat = false;
+		for (let i=0; i<correctes.length; i++){
+			if (correctes[i]==idx) { trobat=true; }
+		}
+		if (!trobat) {localStorage.setItem("num", localStorage.getItem("num") + idx)};
+	}
+
+	function desferTraduccio(idx){
+		let correctes = localStorage.getItem("num");
+		let trobat = false;
+		for (let i=0; i<correctes.length && !trobat; i++){
+			if (correctes[i]==idx) {
+				trobat=true;
+				if (i == correctes.length-1)
+					correctes = correctes.substring(0, i);
+				else {
+					correctes = correctes.substring(0, i) + correctes.substring(i+1);
+			}
+		}
+		localStorage.setItem("num", correctes)};
+	}
+
+	function corregirTraduccio(idx){
+		let f1 = "Volem un model";
+		let f2 = "Estem estudiant el càncer de mama";
+		let f3 = "Disposem de més de 50000 mamografies per entrenar el model";
+		let f4 = "L'entrega és en 5 mesos";
+		let f5 = "Ens veiem aviat per començar el projecte";
+
+		if (idx==1) {
+			if (document.getElementById("t1").value == f1) {
+				$('#correcte1').show();
+				$('#malament1').hide();
+				novaTraduccio('1');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			} else {
+				$('#correcte1').hide();
+				$('#malament1').show();
+				desferTraduccio('1');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			}
+		}
+
+		if (idx==2) {
+			if (document.getElementById("t2").value == f2) {
+				$('#correcte2').show();
+				$('#malament2').hide();
+				novaTraduccio('2');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			} else {
+				$('#correcte2').hide();
+				$('#malament2').show();
+				desferTraduccio('2');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			}
+		}
+
+		if (idx==3) {
+			if (document.getElementById("t3").value == f3) {
+				$('#correcte3').show();
+				$('#malament3').hide();
+				novaTraduccio('3');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			} else {
+				$('#correcte3').hide();
+				$('#malament3').show();
+				desferTraduccio('3');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			}
+		}
+
+		if (idx==4) {
+			if (document.getElementById("t4").value == f4) {
+				$('#correcte4').show();
+				$('#malament4').hide();
+				novaTraduccio('4');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			} else {
+				$('#correcte4').hide();
+				$('#malament4').show();
+				desferTraduccio('4');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			}
+		}
+
+		if (idx==5) {
+			if (document.getElementById("t5").value == f5) {
+				$('#correcte5').show();
+				$('#malament5').hide();
+				novaTraduccio('5');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			} else {
+				$('#correcte5').hide();
+				$('#malament5').show();
+				desferTraduccio('5');
+				document.getElementById("num").innerHTML = localStorage.getItem("num");
+			}
+		}
+	}
+
+	$('#traduccio1').click(function() {corregirTraduccio(1)});
+	$('#traduccio2').click(function() {corregirTraduccio(2)});
+	$('#traduccio3').click(function() {corregirTraduccio(3)});
+	$('#traduccio4').click(function() {corregirTraduccio(4)});
+	$('#traduccio5').click(function() {corregirTraduccio(5)});
+
+	$('#finf1').click(function() {finalFase()});
+
+	if (localStorage.getItem("num").length==5){finalFase()};
+
+});
+</script>
+
+</head>
+
+<body id="body">
+		<div id="header">
+			<p id=titol>BRETXA DIGITAL</p>
+			
+			<p id=titol>FASE 1. BASES DEL PROJECTE</p>
+		</div>
+
+		<div id="content">
+			<div id="container">
+
+				<h1> Fase 1 </h1>
+
+				<div id=enunciat>
+					Explicació de la Fase 1. <br>
+
+					<br>
+					<br>
+					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
+				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
+				</div>
+
+				<div id=activitat>
+
+					<h2 id=timer>Final de l'activitat en <span id="comptador"></span></h2>
+					<p> Frases ben traduides: <span id="num"></span></p>
+					<br>
+					<br>
+
+					<table id=traduccions>
+								<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td colspan=3> <h2> 1. Vi vil have en model </h2></td>
+									<td colspan=1 width=20px> </td>
+									<br>
+								</tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td>
+										<textarea type="text" id="t1"></textarea> <br><br>
+										<input type="button" id="traduccio1" value="Corregir Traducció">
+										<img align=center src="images/accept.png" id="correcte1" width="40px">
+										<img align=center src="images/cross.png" id="malament1" width="40px">
+									</td>
+								</tr>
+								<tr rowspan=2 height=20px> </tr>
+					</table>
+					<br>
+					<table id=traduccions>
+								<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td colspan=3> <h2> 2. Vi studerer brystkræft </h2></td>
+									<td colspan=1 width=20px> </td>
+									<br>
+								</tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td>
+										<textarea type="text" id="t2" ></textarea> <br><br>
+										<input type="button" id="traduccio2" value="Corregir Traducció">
+										<img align=center src="images/accept.png" id="correcte2" width="40px">
+										<img align=center src="images/cross.png" id="malament2" width="40px">
+									</td>
+								</tr>
+								<tr rowspan=2 height=20px> </tr>
+					</table>
+					<br>
+					<table id=traduccions>
+								<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td colspan=3> <h2> 3. Vi har mere end 50.000 mammografier til at træne modellen </h2></td>
+									<td colspan=1 width=20px> </td>
+									<br>
+								</tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td>
+										<textarea type="text" id="t3" ></textarea> <br><br>
+										<input type="button" id="traduccio3" value="Corregir Traducció">
+										<img align=center src="images/accept.png" id="correcte3" width="40px">
+										<img align=center src="images/cross.png" id="malament3" width="40px">
+									</td>
+								</tr>
+								<tr rowspan=2 height=20px> </tr>
+					</table>
+					<br>
+					<table id=traduccions>
+								<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td colspan=3> <h2> 4. Levering er om 5 måneder </h2></td>
+									<td colspan=1 width=20px> </td>
+									<br>
+								</tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td>
+										<textarea type="text" id="t4" ></textarea> <br><br>
+										<input type="button" id="traduccio4" value="Corregir Traducció">
+										<img align=center src="images/accept.png" id="correcte4" width="40px">
+										<img align=center src="images/cross.png" id="malament4" width="40px">
+									</td>
+								</tr>
+								<tr rowspan=2 height=20px> </tr>
+					</table>
+					<br>
+					<table id=traduccions>
+								<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td colspan=3> <h2> 5. Vi ses snart for at starte projektet </h2></td>
+									<td colspan=1 width=20px> </td>
+									<br>
+								</tr>
+								<tr>
+									<td colspan=1 width=20px> </td>
+									<td>
+										<textarea type="text" id="t5" ></textarea> <br><br>
+										<input type="button" id="traduccio5" value="Corregir Traducció">
+										<img align=center src="images/accept.png" id="correcte5" width="40px">
+										<img align=center src="images/cross.png" id="malament5" width="40px">
+									</td>
+								</tr>
+								<tr rowspan=2 height=20px> </tr>
+					</table>
+					<br>
+
+					<table>
+							<td> <img src="images/play.png" id="finf1" width="40px"> </td>
+					</table>
+
+				</div>
+
+				<div id=resultats>
+					<h2> Resultats de la Fase 1</h2>
+					<br>
+					<br>
+
+					<table>
+						<p> <img src="images/play.png" id="fin1" width="40px"> </p>
+					</table>
+				</div>
+
+
+
+		</div>
+
+		<div id="footer">
+			GCED - UPC 2023
+		</div>
+
+</body>
+</html>
