@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRETXA DIGITAL</title>
+
+<link type="text/css" rel="stylesheet" href="css/cssMain.css"/>
+<script src="js/jquery_lib.js"></script>
+<script src="js/jsMain.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	$('#activitat').hide();
+	$('#resultats').hide();
+
+	function iniciFase(){
+		$('#enunciat').hide();
+		$('#activitat').show();
+		let temps = 100;
+		let comptador = setInterval(function() {
+			let mins = Math.floor(temps / 60);
+			let segs = temps % 60;
+			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
+			if (temps == 0) {
+				clearInterval(comptador);
+				$('#activitat').hide();
+	      $('#resultats').show();
+			}
+			temps--;
+		}, 1000);
+	}
+
+	$('#fase1').click(function() {iniciFase()});
+
+});
+</script>
+
+</head>
+
+<body id="body">
+		<div id="header">
+			<p id=titol>BRETXA DIGITAL</p>
+
+			<p id=titol>FASE 3. INICI DEL PROJECTE A L’EMPRESA</p>
+		</div>
+
+		<div id="content">
+			<div id="container">
+
+				<h1> Fase 3 </h1>
+
+				<div id=enunciat>
+					Explicació de la Fase 3. <br>
+
+					<br>
+					<br>
+					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
+				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
+				</div>
+
+				<div id=activitat>
+
+					<h2 id=timer> <br> Final de l'activitat en <span id="comptador"></span></h2>
+					<br>
+					<br>
+
+					<div class="pregresp">
+					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
+					  </div>
+					  <div class="respuestas">
+					    <input type="radio" name="preg1" value="1" /> Sí<br />
+					    <input type="radio" name="preg1" value="2" /> No<br />
+					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
+					  </div>
+					</div>
+					<div class="pregresp">
+					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
+					  </div>
+					  <div class="respuestas">
+					    <input type="radio" name="preg1" value="1" /> Sí<br />
+					    <input type="radio" name="preg1" value="2" /> No<br />
+					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
+					  </div>
+					</div>
+					<div class="pregresp">
+					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
+					  </div>
+					  <div class="respuestas">
+					    <input type="radio" name="preg1" value="1" /> Sí<br />
+					    <input type="radio" name="preg1" value="2" /> No<br />
+					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
+					  </div>
+					</div>
+					<div class="pregresp">
+					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
+					  </div>
+					  <div class="respuestas">
+					    <input type="radio" name="preg1" value="1" /> Sí<br />
+					    <input type="radio" name="preg1" value="2" /> No<br />
+					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
+					  </div>
+					</div>
+					<div class="pregresp">
+					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
+					  </div>
+					  <div class="respuestas">
+					    <input type="radio" name="preg1" value="1" /> Sí<br />
+					    <input type="radio" name="preg1" value="2" /> No<br />
+					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
+					  </div>
+					</div>
+
+					BBB
+				</div>
+
+				<div id=resultats>
+					<h2> Resultats de la Fase 3</h2>
+					<br>
+					<br>
+					RRRR
+
+					<p> <img src="images/play.png" id="fin3" width="40px"> </p>
+				</div>
+
+
+
+		</div>
+
+		<div id="footer">
+			GCED - UPC 2023
+		</div>
+
+</body>
+</html>

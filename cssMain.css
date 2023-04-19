@@ -1,0 +1,158 @@
+/* css file */
+#body
+{
+	background-color: #D8D8D8;
+	font-family: 'avenir', sans-serif;
+	color: black;
+	font-size: 16px;
+}
+
+#container {
+	padding: 10px;
+	color: black;
+	font-size: 16px;
+	height: 100%;
+	margin-bottom: 50px;
+}
+
+#header {
+	background-color: black;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+}
+
+#footer {
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: black;
+    margin-top: -20px;
+		padding: 5px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+		font-size: 18px;
+}
+
+#content{
+	width: 100%;
+	height: 100%;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+#titol{
+	font-size: 20px;
+	font-style: bold;
+	text-align: center;
+}
+
+#noms{
+	text-align: center;
+	font-size: 14px;
+}
+
+.content img {
+	float: left;
+	margin: 20px;
+	cursor: pointer;
+}
+
+
+h1{
+	font-size: 20px;
+	margin: 20px;
+}
+
+h2{
+	font-size: 16px;
+	display: inline;
+}
+
+h3{
+	font-size: 14px;
+	display: inline;
+	text-align: left;
+}
+
+#enunciat, #activitat, #resultats{
+	text-align: justify;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+p{
+	text-align: justify;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+table {
+	margin: 0 auto;
+	padding: 10px;
+}
+
+td {
+	text-align: center;
+}
+
+#traduccions, #formulari {
+	margin: 0 auto;
+	width: 650 px;
+	border: 3px solid black;
+  border-collapse: collapse;
+	padding: 40px;
+}
+
+
+
+#t1, #t2, #t3, #t4, #t5 {
+	width: 600px;
+	height: 40px;
+}
+
+textarea {
+	width: 180px;
+	padding: 10px;
+}
+
+input {
+	width: 160px;
+	padding: 10px;
+}
+
+#timer {
+	position: fixed;
+	bottom: 10px;
+	left: 40px;
+	text-align: left;
+	color: white;
+}
+
+#usuarimalament, #contrasenyamalament, #formularierror	{
+	text-align: center;
+	color: red;
+}
+
+.pregresp {
+border: 1px solid #7DA5E0;
+padding: 10px;
+margin: 10px;
+font-family: Arial, Verdana, Helvetica, sans-serif;
+font-size: 15px;
+font-weight: bold;
+}
+
+.pregunta {
+color: #7DA5E0;
+}
+
+.respuestas {
+color: #000000;
+}
