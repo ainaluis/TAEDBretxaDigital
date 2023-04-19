@@ -30,12 +30,12 @@
     color: white;
     background-color: black;
     margin-top: -20px;
-		padding: 5px;
+	padding: 5px;
     text-align: center;
     position: fixed;
     bottom: 0;
     left: 0;
-		font-size: 18px;
+	font-size: 18px;
 }
 
 #content{
@@ -129,10 +129,9 @@ input {
 
 #timer {
 	position: fixed;
-	bottom: 10px;
+	bottom: 15px;
 	left: 50px;
-	background-color: #D8D8D8;
-	text-align: left;
+	z-index: 9999;
 	color: white;
 }
 
