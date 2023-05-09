@@ -102,12 +102,27 @@ td {
 	text-align: center;
 }
 
-#traduccions, #formulari {
+#traduccions, #formulari, #login{
 	margin: 0 auto;
 	width: 650 px;
 	border: 3px solid black;
-  border-collapse: collapse;
+  	border-collapse: collapse;
 	padding: 40px;
+}
+
+#menu td{
+    border: 2px solid black;
+	border-collapse: collapse;
+	background-color: gray;
+}
+
+#modelpA, #modelpB, #modelpC, #inici, #final {
+	margin: 0 auto;
+	width: 650 px;
+	border: 3px solid black;
+  	border-collapse: collapse;
+	padding: 40px;
+	background-color: white;
 }
 
 
@@ -135,7 +150,7 @@ input {
 	color: white;
 }
 
-#usuarimalament, #contrasenyamalament, #formularierror	{
+#usuarimalament, #contrasenyamalament, #formularierror, #missatgefaltalogin	{
 	text-align: center;
 	color: red;
 }

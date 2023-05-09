@@ -27,6 +27,7 @@ $(document).ready(function(){
 
 	function iniciFase(){
 		localStorage.setItem("intents", 0);
+		document.getElementById("try").innerHTML = localStorage.getItem("intents");
 		$('#enunciat').hide();
 		$('#activitat').show();
 		$('#faltalogin').hide();
@@ -88,6 +89,7 @@ $(document).ready(function(){
 	function vesalogin(){
 		$('#login').show();
 		$('#faltalogin').hide();
+		document.getElementById("try").innerHTML = localStorage.getItem("intents");
 
 	}
 
@@ -102,6 +104,7 @@ $(document).ready(function(){
 		if (i.length>3){
 			$('#missatgefaltalogin').show();
 			$('#back').hide();
+			
 		}
 		$('#back').click(function() {vesalogin();});
 
@@ -111,11 +114,10 @@ $(document).ready(function(){
 
 	$('#fase2').click(function() {iniciFase()});
 	$('#validar').click(function() {validarLogin()});
-	$('#seguir').click(function() {noLogin()});
+	//$('#seguir').click(function() {noLogin()});
 	$('#passaport').click(function() {validarPassaport()});
 
 	$('#finf2').click(function() {finalFase()});
-	$('#finf2no').click(function() {finalFase()});
 
 
 });
@@ -151,7 +153,6 @@ $(document).ready(function(){
 					<h2 id=timer> Final de l'activitat en <span id="comptador"></span></h2>
 					<br>
 					<br>
-
 					<table id=login>
 						<form>
 								<tr rowspan=2 height=20px> </tr>
@@ -257,24 +258,7 @@ $(document).ready(function(){
 						<td> <img src="images/play.png" id="back" width="40px" style="transform: rotate(180deg);"> </td>
 						</table>
 
-						<div id=missatgefaltalogin> 
-							<h2> No pots completar aquesta fase. </h2>
-							<br>
-							<h2> No existeix l'opció de demanar el passaport COVID sense haver entrat en la teva sessió. </h2>
-							<br>
-							<h2> Estàs patint una bretxa digital d'ús: tens accés a la tecnologia però no saps con utilitzar-la.</h2>
-							<br>
-							<h2> Ja no pots fer més intents. Espera a que acabi el temps per donar per finalitzada la fase o fés click en el botó de seguir. </h2>
-							<br>
-							<h2> Ho sentim, però no podràs viatjar a Almenya per anar a la conferència.</h2>
-							<br>
-							<br>
-							<br>
-							<table>
-								<td> <img src="images/play.png" id="finf2no" width="40px"> </td>
-							</table>
-						
-						</div>
+						<div id=missatgefaltalogin> Assegura't que has omplert tots els camps. Tens <span id="buits"></span> espais buits.</div>
 					</div>
 						<br>
 						<br>

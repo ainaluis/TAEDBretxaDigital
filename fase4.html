@@ -17,7 +17,12 @@ $(document).ready(function(){
 	function iniciFase(){
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 5;
+		$('#inici').show();
+		$('#final').hide();
+		$('#modelpA').hide();
+		$('#modelpC').hide();
+		$('#modelpB').hide();
+		let temps = 5000;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -31,7 +36,59 @@ $(document).ready(function(){
 		}, 1000);
 	}
 
+	function finalFase(){
+		$('#activitat').hide();
+		$('#resultats').show();
+	}
+
+	function activarModelA(){
+		$('#inici').hide();
+		$('#final').hide();
+		$('#modelpB').hide();
+		$('#modelpC').hide();
+		$('#modelpA').show();
+	}
+
+	function activarModelB(){
+		$('#inici').hide();
+		$('#final').hide();
+		$('#modelpA').hide();
+		$('#modelpC').hide();
+		$('#modelpB').show();
+	}
+
+	function activarModelC(){
+		$('#inici').hide();
+		$('#final').hide();
+		$('#modelpA').hide();
+		$('#modelpB').hide();
+		$('#modelpC').show();
+	}
+
+	function activarIni(){
+		$('#inici').show();
+		$('#final').hide();
+		$('#modelpA').hide();
+		$('#modelpB').hide();
+		$('#modelpC').hide();
+	}
+
+	function activarFin(){
+		$('#inici').hide();
+		$('#final').show();
+		$('#modelpA').hide();
+		$('#modelpB').hide();
+		$('#modelpC').hide();
+	}
+
+	$('#modelini').click(function() {activarIni()});
+	$('#modelfin').click(function() {activarFin()});
+	$('#modelA').click(function() {activarModelA()});
+	$('#modelB').click(function() {activarModelB()});
+	$('#modelC').click(function() {activarModelC()});
+
 	$('#fase1').click(function() {iniciFase()});
+	$('#f').click(function() {finalFase()});
 
 });
 </script>
@@ -63,7 +120,210 @@ $(document).ready(function(){
 					<br>
 					<br>
 
-					BBB
+					<div style="display: inline-block; vertical-align: top;">
+					<table id="menu">
+						<tr>
+							<td width="200px" height="40px" id="modelini">Explicació</td>
+						  </tr>
+						<tr>
+						  <td width="200px" height="40px" id="modelA">Model A</td>
+						</tr>
+						<tr>
+						  <td width="200px" height="40px" id="modelB">Model B</td>
+						</tr>
+						<tr>
+						  <td width="200px" height="40px" id="modelC">Model C</td>
+						</tr>
+						<tr>
+							<td width="200px" height="40px" id="modelfin">Definició Model Final</td>
+						  </tr>
+					  </table>
+					</div>
+					
+					<div style="display: inline-block; vertical-align: top;">
+
+						<table id="inici">
+							<tr>
+								<td width="1000px" height="20px"> </td>
+							</tr>
+							<tr>
+								<td> <h1>EXPLICACIÓ</h1> </td>
+							</tr>
+							<tr>
+								<td height="500px"> </td>
+							</tr>
+						  </table>
+
+						<table id="modelpA">
+							<tr>
+								<td colspan="2" height="20px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2"> <h1>MODEL A</h1> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+							  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+							  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+
+						  </table>
+
+						  <table id="modelpB">
+							<tr>
+								<td colspan="2" height="20px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2"> <h1>MODEL B</h1> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+							  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+							  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <h2> Us de </h2> </td>
+								<td width="500px"> <h2> Us de </h2> </td>
+							</tr>
+							<tr>
+								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							</tr>
+							<tr>
+								<td colspan="2" height="50px"> </td>
+							</tr>
+
+							<table id="modelpC">
+								<tr>
+									<td colspan="2" height="20px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2"> <h1>MODEL C</h1> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <h2> Us de </h2> </td>
+									<td width="500px"> <h2> Us de </h2> </td>
+								</tr>
+								<tr>
+								  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+								  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2" height="50px"> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <h2> Us de </h2> </td>
+									<td width="500px"> <h2> Us de </h2> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+									<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2" height="50px"> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <h2> Us de </h2> </td>
+									<td width="500px"> <h2> Us de </h2> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
+									<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2" height="50px"> </td>
+								</tr>
+	
+							  </table>
+
+						  </table>
+						  <table id="final">
+							<tr>
+								<td width="1000px" height="20px"> </td>
+							</tr>
+							<tr>
+								<td> <h1>ELECCIÓ DEL MODEL FINAL</h1> </td>
+							</tr>
+							<tr><form>
+								<td> <h2>Després de l'entrenament de diferents propostes, el model final que hem escollit <br>
+									és el de 
+								
+									<select id="triamodel">
+									<option value="res"> </option>
+									  <option value="MA">Model A</option>
+									  <option value="MB">Model B</option>
+									  <option value="MC">Model C</option>
+									</select>
+									
+								amb la definició de 
+								
+									<select id="triamodel">
+									<option value="res"> </option>
+									  <option value="MA">Model A</option>
+									  <option value="MB">Model B</option>
+									  <option value="MC">Model Cfkjshsdjlkhfsjlkdn  shfksdjh  skjfh slkvsl </option>
+									</select>
+								</form>	
+							</h2> </td>
+							</tr>
+							<tr>
+								<td height="30px"> </td>
+							</tr>
+							<tr>
+								<td> <input type="button" id="f" value="Confirma el model" > </td>
+							</tr>
+							<tr>
+								<td height="30px"> </td>
+							</tr>
+						  </table>
+					</div>
+					<br>
+					<br>
 				</div>
 
 				<div id=resultats>
