@@ -11,6 +11,28 @@
 <script>
 
 $(document).ready(function(){
+	let g = localStorage.getItem("grup");
+	if (g=='1') {
+		$('#prof1').show();
+		$('#negf1').hide();
+	}
+	if (g=='2') {
+		$('#prof1').hide();
+		$('#negf1').show();
+	}
+	if (g=='3') {
+		$('#prof1').show();
+		$('#negf1').hide();
+	}
+	if (g=='4') {
+		$('#prof1').show();
+		$('#negf1').hide();
+	}
+	if (g=='5') {
+		$('#prof1').hide();
+		$('#negf1').hide();
+	}
+
 	$('#activitat').hide();
 	$('#resultats').hide();
 	$('#correcte1').hide();
@@ -23,13 +45,12 @@ $(document).ready(function(){
 	$('#malament4').hide();
 	$('#correcte5').hide();
 	$('#malament5').hide();
-	document.getElementById("num").innerHTML = localStorage.getItem("num");
 
 	function iniciFase(){
 		localStorage.setItem("num", "");
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 100;
+		let temps = 180;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -85,12 +106,10 @@ $(document).ready(function(){
 				$('#correcte1').show();
 				$('#malament1').hide();
 				novaTraduccio('1');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			} else {
 				$('#correcte1').hide();
 				$('#malament1').show();
 				desferTraduccio('1');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			}
 		}
 
@@ -99,12 +118,10 @@ $(document).ready(function(){
 				$('#correcte2').show();
 				$('#malament2').hide();
 				novaTraduccio('2');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			} else {
 				$('#correcte2').hide();
 				$('#malament2').show();
 				desferTraduccio('2');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			}
 		}
 
@@ -113,12 +130,10 @@ $(document).ready(function(){
 				$('#correcte3').show();
 				$('#malament3').hide();
 				novaTraduccio('3');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			} else {
 				$('#correcte3').hide();
 				$('#malament3').show();
 				desferTraduccio('3');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			}
 		}
 
@@ -127,12 +142,10 @@ $(document).ready(function(){
 				$('#correcte4').show();
 				$('#malament4').hide();
 				novaTraduccio('4');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			} else {
 				$('#correcte4').hide();
 				$('#malament4').show();
 				desferTraduccio('4');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			}
 		}
 
@@ -141,12 +154,10 @@ $(document).ready(function(){
 				$('#correcte5').show();
 				$('#malament5').hide();
 				novaTraduccio('5');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			} else {
 				$('#correcte5').hide();
 				$('#malament5').show();
 				desferTraduccio('5');
-				document.getElementById("num").innerHTML = localStorage.getItem("num");
 			}
 		}
 	}
@@ -179,20 +190,52 @@ $(document).ready(function(){
 				<h1> Fase 1 </h1>
 
 				<div id=enunciat>
-					Explicació de la Fase 1. <br>
+					
+					El projecte que esteu a punt de realitzar és realment molt interessant. Ara bé, hi ha un petit problem ja que 
+					l'empresa que el demana és danesa així que les instruccions i bases del projecte està redactades en danès. Així 
+					doncs, abans de poder començar el projecte en sí, et demanen que tinguis una mica de noció d'aspectes més tècnics
+					d'aquest, havent de traduir unes frases del danès al català.
+					
+					<p>
+						A continuació, trobaràs 5 frases en danès que s'han de traduir al català. Per poder saber si la traducció és 
+						correcte, existeix un botó al clicar-lo t'ho indica. És molt rellevant aconseguir totes les correccions correctes
+						perquè si entens millor quin és l'objectiu de projecte, podràs desenvolupar un millor model. El número de frases 
+						correctament traduides trindrà un efecte directe en l'accuracy final del model.  
+						<br>
+						<br>
+						Tens 3 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
+						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
+						et queda per poder acabar. Si aconsegueixes totes les traduccions correctes abans que el temps acabi, hauràs 
+						d'esperar per tal de poder avançar. 
+					</p>
+					<p id="prof1">
+						Tens la sort que disposes d'un ordinador personal. A més, tens accés internet així que pots fer ús de facilitats
+						per poder realitzar aquesta tasca. 
+					</p>
+
+					<p id="negf1">
+						Malauradament, no disposes d'un ordinador personal així que no pots fer ús de les facilitats que ofereix internet
+						per poder realitzar aquesta tasca. Tot i això, t'oferim un diccionari perquè ho puguis intentar. 
+	
+
+					</p>
 
 					<br>
 					<br>
-					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
+					<h2> Important: Teniu 3 minuts per completar l'activitat </h2>
 				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
 				</div>
 
 				<div id=activitat>
 
 					<h2 id=timer>Final de l'activitat en <span id="comptador"></span></h2>
-					<p> Frases ben traduides: <span id="num"></span></p>
-					<br>
-					<br>
+						Tradueix les següents frases per entendre millor l'objectiu del projecte. Recorda que el número de frases 
+						<br>
+						correctament traduides trindrà un efecte directe en l'accuracy final del model.  
+						<br>
+						Tens 3 minuts per aconseguir-ho! 
+						<br>
+						<br>
 
 					<table id=traduccions>
 								<form>
