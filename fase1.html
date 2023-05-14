@@ -17,16 +17,16 @@ $(document).ready(function(){
 		$('#negf1').hide();
 	}
 	if (g=='2') {
+		$('#prof1').show();
+		$('#negf1').hide();
+	}
+	if (g=='3') {
 		$('#prof1').hide();
 		$('#negf1').show();
 	}
-	if (g=='3') {
-		$('#prof1').show();
-		$('#negf1').hide();
-	}
 	if (g=='4') {
-		$('#prof1').show();
-		$('#negf1').hide();
+		$('#prof1').hide();
+		$('#negf1').show();
 	}
 	if (g=='5') {
 		$('#prof1').hide();
@@ -50,7 +50,7 @@ $(document).ready(function(){
 		localStorage.setItem("num", "");
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 180;
+		let temps = 30;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -66,6 +66,7 @@ $(document).ready(function(){
 	function finalFase(){
 		$('#activitat').hide();
 		$('#resultats').show();
+		document.getElementById("num").innerHTML = localStorage.getItem("num").length;
 	}
 
 	$('#fase1').click(function() {iniciFase()});
@@ -216,8 +217,6 @@ $(document).ready(function(){
 					<p id="negf1">
 						Malauradament, no disposes d'un ordinador personal així que no pots fer ús de les facilitats que ofereix internet
 						per poder realitzar aquesta tasca. Tot i això, t'oferim un diccionari perquè ho puguis intentar. 
-	
-
 					</p>
 
 					<br>
@@ -342,10 +341,9 @@ $(document).ready(function(){
 								<tr rowspan=2 height=20px> </tr>
 					</table>
 					<br>
+					<br>
 
-					<table>
-							<td> <img src="images/play.png" id="finf1" width="40px"> </td>
-					</table>
+					
 
 				</div>
 
@@ -353,7 +351,20 @@ $(document).ready(function(){
 					<h2> Resultats de la Fase 1</h2>
 					<br>
 					<br>
+					Has aconseguit traduir correctament <span id="num"></span> frases. <br>
+					<br>
+					Les traduccions correctes eren: <br>
+					<ul>
+						<li>Volem un model</li>
+						<li>Estem estudiant el càncer de mama</li>
+						<li>Disposem de més de 50000 mamografies per entrenar el model</li>
+						<li>L'entrega és en 5 mesos</li>
+						<li>Ens veiem aviat per començar el projecte</li>
+					</ul>
 
+					<br>
+					
+					
 					<table>
 						<p> <img src="images/play.png" id="fin1" width="40px"> </p>
 					</table>

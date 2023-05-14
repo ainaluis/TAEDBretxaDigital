@@ -17,18 +17,6 @@ $(document).ready(function(){
 	function iniciFase(){
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 5;
-		let comptador = setInterval(function() {
-			let mins = Math.floor(temps / 60);
-			let segs = temps % 60;
-			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
-			if (temps == 0) {
-				clearInterval(comptador);
-				$('#activitat').hide();
-	      $('#resultats').show();
-			}
-			temps--;
-		}, 1000);
 	}
 
 	$('#fase1').click(function() {iniciFase()});
@@ -49,31 +37,21 @@ $(document).ready(function(){
 				<h1> Fase 5 </h1>
 
 				<div id=enunciat>
-					Explicació de la Fase 5. <br>
+					Després de 3 mesos de treball en el projecte, ha arribat el moment de l'entrega final. 
+					Per acabar de preparar el model final,  <br>
 
-					<br>
-					<br>
-					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
+					
 				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
 				</div>
 
 				<div id=activitat>
 
-					<h2>Final de l'activitat en <span id="comptador"></span></h2>
 					<br>
 					<br>
 
 					BBB
 				</div>
 
-				<div id=resultats>
-					<h2> Resultats de la Fase 2</h2>
-					<br>
-					<br>
-					RRRR
-
-					<p> <img src="images/play.png" id="fin5" width="40px"> </p>
-				</div>
 
 
 

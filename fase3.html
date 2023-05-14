@@ -11,27 +11,73 @@
 <script>
 
 $(document).ready(function(){
+	let g = localStorage.getItem("grup");
 	$('#activitat').hide();
 	$('#resultats').hide();
+	$('#usuarimalament').hide();
+	$('#contrasenyamalament').hide();
 
 	function iniciFase(){
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 100;
-		let comptador = setInterval(function() {
-			let mins = Math.floor(temps / 60);
-			let segs = temps % 60;
-			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
-			if (temps == 0) {
-				clearInterval(comptador);
-				$('#activitat').hide();
-	      $('#resultats').show();
-			}
-			temps--;
-		}, 1000);
+	}
+
+	function validarLogin() {
+		let correcte = 2;
+		let usuari = document.getElementById("usuari").value;
+		let contrasenya = document.getElementById("contrasenya").value;
+		if (usuari == localStorage.getItem("grup")){
+			$('#usuarimalament').hide();
+		} else {
+			$('#usuarimalament').show();
+			correcte = correcte-1;
+		}
+		if (localStorage.getItem("grup") == '1' && contrasenya == 'noi'){
+			$('#contrasenyamalament').hide();
+		} else if (localStorage.getItem("grup") == '2' && contrasenya == 'noi'){
+			$('#contrasenyamalament').hide();
+		} else if (localStorage.getItem("grup") == '3' && contrasenya == 'noi'){
+			$('#contrasenyamalament').hide();
+		} else if (localStorage.getItem("grup") == '4' && contrasenya == 'noia'){
+			$('#contrasenyamalament').hide();
+		} else if (localStorage.getItem("grup") == '5' && contrasenya == 'noia'){
+			$('#contrasenyamalament').hide();
+		} else {
+			$('#contrasenyamalament').show(); 
+			correcte = correcte-1; 
+		} 
+		if (correcte==2){
+			finalFase();
+		}
+}
+function finalFase(){
+		$('#activitat').hide();
+		$('#resultats').show();
+		if (g=='1') {
+			$('#proff3').show();
+			$('#negff3').hide();
+		}
+		if (g=='2') {
+			$('#proff3').show();
+			$('#negff3').hide();
+		}
+		if (g=='3') {
+			$('#proff3').show();
+			$('#negff3').hide();
+		}
+		if (g=='4') {
+			$('#proff3').hide();
+			$('#negff3').show();
+		}
+		if (g=='5') {
+			$('#proff3').hide();
+			$('#negff3').show();
+		}
 	}
 
 	$('#fase1').click(function() {iniciFase()});
+	$('#validar').click(function() {validarLogin()});
+
 
 });
 </script>
@@ -51,74 +97,88 @@ $(document).ready(function(){
 				<h1> Fase 3 </h1>
 
 				<div id=enunciat>
-					Explicació de la Fase 3. <br>
+					Han passat tres setmanes desde que et van enunciar que havies sigut seleccionat per a 
+					participar en el projecte centrat en elaborar un model per ajudar en la predicció del càncer 
+					de mama. Finalment, ha arribat el dia que vagis a les oficines de l'empresa i et trobis en
+					l'equip amb el que treballaràs durant els pròxims 3 mesos. Com a nou membre de l'empresa, 
+					et donen un portàtil per a que puguis treball tan a l'oficina. 
+
+					<p>
+						A continuació, trobaràs un formulari de <span style="font-style: italic"> login </span> que hauràs de completar per tal 
+						de poder entrar en la teva sessió de treball en els ordinadors de l'empresa. <br>
+					</p>
+					<p>
+						Per iniciar sessió et cal un usuari i una contrasenya. <br>
+						L'usuari és el dígit que identifica el teu grup. <br>
+						La contrasenya és el codi que us hem donat al inici amb la presentació de les característiques del teu grup. <br>
+					</p>
 
 					<br>
 					<br>
-					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
 				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
 				</div>
 
 				<div id=activitat>
 
-					<h2 id=timer> <br> Final de l'activitat en <span id="comptador"></span></h2>
+					<p id="intro"> Fes <span style="font-style: italic"> login </span> per poder entrar en la teva 
+						sessió de treball en els ordinadors de l'empresa. 
+					</p>
+					<table id=login>
+						<br>
+						<form>
+								<tr rowspan=2 height=20px> </tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <img src="images/login.png" width="100px"></td>
+								<td colspan=1 width=20px> </td>
+								</tr>
+								<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="text" id="usuari" placeholder="Usuari"><br> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+								<td> <input type="password" id="contrasenya" placeholder="Contrasenya"><br><br> </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+							<tr>
+								<td colspan=1 width=20px> </td>
+							  <td> <input type="button" id="validar" value="Entra" > </td>
+								<td colspan=1 width=20px> </td>
+							</tr>
+
+								<tr rowspan=2 height=20px> </tr>
+							</form>
+					</table>
+					<br>
+					<div id=usuarimalament> L'usuari no és correcte. Assegura't que introdueixes el dígit del grup al qual pertanys. </div>
+					<div id=contrasenyamalament> La contrasenya no és correcte. Torna-ho a intentar o segueix sense començar sessió. </div>
 					<br>
 					<br>
 
-					<div class="pregresp">
-					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
-					  </div>
-					  <div class="respuestas">
-					    <input type="radio" name="preg1" value="1" /> Sí<br />
-					    <input type="radio" name="preg1" value="2" /> No<br />
-					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
-					  </div>
-					</div>
-					<div class="pregresp">
-					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
-					  </div>
-					  <div class="respuestas">
-					    <input type="radio" name="preg1" value="1" /> Sí<br />
-					    <input type="radio" name="preg1" value="2" /> No<br />
-					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
-					  </div>
-					</div>
-					<div class="pregresp">
-					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
-					  </div>
-					  <div class="respuestas">
-					    <input type="radio" name="preg1" value="1" /> Sí<br />
-					    <input type="radio" name="preg1" value="2" /> No<br />
-					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
-					  </div>
-					</div>
-					<div class="pregresp">
-					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
-					  </div>
-					  <div class="respuestas">
-					    <input type="radio" name="preg1" value="1" /> Sí<br />
-					    <input type="radio" name="preg1" value="2" /> No<br />
-					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
-					  </div>
-					</div>
-					<div class="pregresp">
-					  <div class="pregunta"> 1. ¿Crees que HTML es una buena tecnología?<br />
-					  </div>
-					  <div class="respuestas">
-					    <input type="radio" name="preg1" value="1" /> Sí<br />
-					    <input type="radio" name="preg1" value="2" /> No<br />
-					    <input type="radio" name="preg1" value="3" /> Ns/Nc<br />
-					  </div>
-					</div>
+					
 
-					BBB
 				</div>
 
 				<div id=resultats>
 					<h2> Resultats de la Fase 3</h2>
 					<br>
 					<br>
-					RRRR
+					<p id="posff3"> 
+						El teu <span style="font-style: italic;">login</span> evidencia que fas referència a un home. Gràcies a aquest fet 
+						podràs unir-te des d'un inici a treballar amb els grans experts en el projecte. Aquest fet et permetrà rebre grans coneixements
+						i treballar amb les millors aplicacions, fet que tindrà un impacte directe en el rendiment del teu model final. Endavant i 
+						pots començar el projecte avui mateix. 
+					</p>
+					<p id="negff3"> 
+						El teu <span style="font-style: italic;">login</span> evidencia que fas referència a una dona. Conseqüentment, l'empresa
+						tecnològica no et confia tasques de gran rellevancia i t'obliga a fer feines que no tenen gran relació en el projecte 
+						innovador que se t'ha proposat. Ara bé, amb el pas dels dies, el director de la teva secció veu en tu molt potencial 
+						i passades 3 setmanes, et permet finalment començar a treballar en el projecte de veritat. Has perdut tres setmanes i aquest fet 
+						tindrà un impacte negatiu directe en el rendiment del teu model final. Endavant i felicitats per haver-te "guanya't" el lloc de 
+						treball en el gran equip d'experts.  
+					</p>
 
 					<p> <img src="images/play.png" id="fin3" width="40px"> </p>
 				</div>

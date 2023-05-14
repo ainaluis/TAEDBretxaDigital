@@ -13,6 +13,28 @@
 <script>
 
 $(document).ready(function(){
+	let g = localStorage.getItem("grup");
+	if (g=='1') {
+		$('#prof2').show();
+		$('#negf2').hide();
+	}
+	if (g=='2') {
+		$('#prof2').hide();
+		$('#negf2').show();
+	}
+	if (g=='3') {
+		$('#prof2').show();
+		$('#negf2').hide();
+	}
+	if (g=='4') {
+		$('#prof2').show();
+		$('#negf2').hide();
+	}
+	if (g=='5') {
+		$('#prof2').hide();
+		$('#negf2').hide();
+	}
+
 	$('#activitat').hide();
 	$('#resultats').hide();
 	$('#formulari').hide();
@@ -23,6 +45,26 @@ $(document).ready(function(){
 	function finalFase(){
 		$('#activitat').hide();
 		$('#resultats').show();
+		if (g=='1') {
+			$('#proff2').show();
+			$('#negff2').hide();
+		}
+		if (g=='2') {
+			$('#proff2').hide();
+			$('#negff2').show();
+		}
+		if (g=='3') {
+			$('#proff2').show();
+			$('#negff2').hide();
+		}
+		if (g=='4') {
+			$('#proff2').show();
+			$('#negff2').hide();
+		}
+		if (g=='5') {
+			$('#proff2').hide();
+			$('#negff2').show();
+		}
 	}
 
 	function iniciFase(){
@@ -63,7 +105,6 @@ $(document).ready(function(){
 		if (correcte==2){
 			$('#formulari').show();
 			$('#login').hide();
-
 		}
 	}
 
@@ -87,14 +128,18 @@ $(document).ready(function(){
 
 	function vesalogin(){
 		$('#login').show();
+		$('#intro').show();
 		$('#faltalogin').hide();
 
 	}
 
 	function noLogin(){
 		$('#login').hide();
+		$('#intro').hide();
 		$('#finf2').hide();
 		$('#faltalogin').show();
+		$('#contrasenyamalament').hide();
+		$('#usuarimalament').hide();
 		$('#missatgefaltalogin').hide();
 		let ipas = localStorage.getItem("intents");
 		localStorage.setItem('intents', ipas+1);
@@ -138,7 +183,36 @@ $(document).ready(function(){
 				<h1> Fase 2 </h1>
 
 				<div id=enunciat>
-					Explicació de la Fase 2. <br>
+					Després d'entendre quines son les bases del projecte, l'empresa danesa t'ofereix la possibilitat de viatjar a 
+					Alemanya per tal d'assistir a una conferència on es desenvolupa l'explicació d'una recerca sobre el càncer
+					de mama. Es considera de gran prestigi anar-hi i els coneixements que hi pots obtenir són de gran qualitat. 
+					Tanmateix, ens trobem en una època de risc pel COVID i els desplaçaments entre països està limitat, de manera 
+					que és necessari el <span style="font-style: italic"> Passaport COVID </span> per poder viatjar. 
+					
+					<p>
+						A continuació, trobaràs un formulari de <span style="font-style: italic"> login </span> que hauràs de completar per tal 
+						de poder el certificat <span style="font-style: italic"> Passaport COVID </span> que necessites per a poder viatjar. Asistir 
+						a la conferència a Alemanya és de gran importància perquè obtindràs molts coneixements essencials pel projecte i anar 
+						o no al viatge depèn únicament de si tens aquest document. 
+						
+						<br>
+						<br>
+						Tens 3 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
+						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
+						et queda per poder acabar. Si aconsegueixes el <span style="font-style: italic"> Passaport COVID </span> abans que el temps acabi, hauràs 
+						d'esperar per tal de poder avançar. 
+					</p>
+					<p id="prof2">
+						Per iniciar sessió et cal un usuari i una contrasenya. <br>
+						L'usuari és el dígit que identifica el teu grup. <br>
+						La contrasenya és el codi que us hem donat al inici amb la presentació de les característiques del teu grup. <br>
+					</p>
+
+					<p id="negf2">
+						Per iniciar sessió et cal un usuari i una contrasenya. <br>
+						L'usuari és el dígit que identifica el teu grup. <br>
+						No tens accés a la contrasenya. Ara vé, veuràs que existeix l'opció de seguir sense fer el login. <br>
+					</p>
 
 					<br>
 					<br>
@@ -149,10 +223,11 @@ $(document).ready(function(){
 				<div id=activitat>
 
 					<h2 id=timer> Final de l'activitat en <span id="comptador"></span></h2>
-					<br>
-					<br>
-
+					
+					<p id="intro"> Fes <span style="font-style: italic"> login </span> per poder sol·licitar el <span style="font-style: italic"> Passaport COVID</span>.
+					</p>
 					<table id=login>
+						<br>
 						<form>
 								<tr rowspan=2 height=20px> </tr>
 								<tr>
@@ -244,15 +319,13 @@ $(document).ready(function(){
 							</form>
 					</table>
 					<br>
-					<br>
 					<div id=formularierror> Assegura't que has omplert tots els camps. Tens <span id="buits"></span> espais buits.</div>
 					<div id=usuarimalament> L'usuari no és correcte. Assegura't que introdueixes el dígit del grup al qual pertanys. </div>
 					<div id=contrasenyamalament> La contrasenya no és correcte. Torna-ho a intentar o segueix sense començar sessió. </div>
 
 					<div id="faltalogin">
-						<h2>Estàs intentant demanar el passaport COVID sense entrar en la teva sessió personal</h2>
-						<br>
-						<h2>Aquesta funció no és possible. <br>Torna enrere i fes login.</h2>
+						<p>Estàs intentant demanar el <span style="font-style: italic"> Passaport COVID </span> sense entrar en la teva sessió personal.<br>
+						Aquesta funció no és possible. <br>Torna enrere i fes <span style="font-style: italic"> login</span>.</p>
 						<table>
 						<td> <img src="images/play.png" id="back" width="40px" style="transform: rotate(180deg);"> </td>
 						</table>
@@ -260,30 +333,23 @@ $(document).ready(function(){
 						<div id=missatgefaltalogin> 
 							<h2> No pots completar aquesta fase. </h2>
 							<br>
-							<h2> No existeix l'opció de demanar el passaport COVID sense haver entrat en la teva sessió. </h2>
+							<h2> No existeix l'opció de demanar el <span style="font-style: italic"> Passaport COVID </span> sense haver entrat en la teva sessió. </h2>
 							<br>
 							<h2> Estàs patint una bretxa digital d'ús: tens accés a la tecnologia però no saps con utilitzar-la.</h2>
 							<br>
-							<h2> Ja no pots fer més intents. Espera a que acabi el temps per donar per finalitzada la fase o fés click en el botó de seguir. </h2>
+							<h2> Ja no pots fer més intents. Espera a que acabi el temps per donar per finalitzada la fase. </h2>
 							<br>
 							<h2> Ho sentim, però no podràs viatjar a Almenya per anar a la conferència.</h2>
 							<br>
 							<br>
-							<br>
-							<table>
-								<td> <img src="images/play.png" id="finf2no" width="40px"> </td>
-							</table>
+
 						
 						</div>
 					</div>
-						<br>
-						<br>
-						<br>
-					<table>
-							<td> <img src="images/play.png" id="finf2" width="40px"> </td>
-					</table>
 
-					
+
+					<br>
+					<br>
 
 					</div>
 
@@ -292,9 +358,20 @@ $(document).ready(function(){
 					<h2> Resultats de la Fase 2</h2>
 					<br>
 					<br>
-					RRRR
+					<p id="posff2"> 
+						Gràcies a que se t'ha facilitat el codi al inici, has pogut ser capaç de fer <span style="font-style: italic;">login</span>
+						i solicitar el document. Podràs viatjar a Alemanya i tots els coneixements que obtindràs t'ajudaran a augmentar 
+						l'<span style="font-style: italic;">accuracy</span> del teu model final. 
+
+					</p>
+					<p id="negff2"> 
+						No se t'ha facilitat el codi al inici i tot i tenir accés a la tecnologia, no has sapigut fer un ús d'ella. Has patit una bretxa 
+						digital d'ús. No podràs viatjar a Alemanya i, com a conseqüencia, la falta de coneixements que tindràs provocarà que 
+						<span style="font-style: italic;">l'accuracy</span> del teu model final sigui més baixa. 
+					</p>
 
 					<p> <img src="images/play.png" id="fin2" width="40px"> </p>
+
 				</div>
 
 

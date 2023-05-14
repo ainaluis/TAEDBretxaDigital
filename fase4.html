@@ -14,15 +14,39 @@ $(document).ready(function(){
 	$('#activitat').hide();
 	$('#resultats').hide();
 
+	let g = localStorage.getItem("grup");
+	if (g=='1') {
+		$('#prof4').show();
+		$('#negf4').hide();
+	}
+	if (g=='2') {
+		$('#prof4').hide();
+		$('#negf4').show();
+	}
+	if (g=='3') {
+		$('#prof4').show();
+		$('#negf4').hide();
+	}
+	if (g=='4') {
+		$('#prof4').show();
+		$('#negf4').hide();
+	}
+	if (g=='5') {
+		$('#prof4').hide();
+		$('#negf4').show();
+	}
+
 	function iniciFase(){
 		$('#enunciat').hide();
 		$('#activitat').show();
 		$('#inici').show();
 		$('#final').hide();
+		$('#neg').hide();
 		$('#modelpA').hide();
 		$('#modelpC').hide();
 		$('#modelpB').hide();
-		let temps = 5000;
+		$('#modelpD').hide();
+		let temps = 30;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -39,30 +63,76 @@ $(document).ready(function(){
 	function finalFase(){
 		$('#activitat').hide();
 		$('#resultats').show();
+		if (g=='1') {
+			$('#proff4').show();
+			$('#negff4').hide();
+		}
+		if (g=='2') {
+			$('#proff4').show();
+			$('#negff4').hide();
+		}
+		if (g=='3') {
+			$('#proff4').hide();
+			$('#negff4').show();
+		}
+		if (g=='4') {
+			$('#proff4').show();
+			$('#negff4').hide();
+		}
+		if (g=='5') {
+			$('#proff4').hide();
+			$('#negff4').show();
+		}
 	}
 
 	function activarModelA(){
 		$('#inici').hide();
 		$('#final').hide();
+		$('#neg').hide();
 		$('#modelpB').hide();
 		$('#modelpC').hide();
 		$('#modelpA').show();
+		$('#modelpD').hide();
 	}
 
 	function activarModelB(){
 		$('#inici').hide();
 		$('#final').hide();
-		$('#modelpA').hide();
-		$('#modelpC').hide();
-		$('#modelpB').show();
+		if (g=='2'|g=='5'){
+			$('#neg').show();
+			activarIni();
+		} else {
+			$('#neg').hide();
+			$('#modelpA').hide();
+			$('#modelpC').hide();
+			$('#modelpB').show();
+			$('#modelpD').hide();
+		}
 	}
 
 	function activarModelC(){
 		$('#inici').hide();
 		$('#final').hide();
+		if (g=='2'|g=='5'){
+			$('#neg').show();
+			activarIni();
+		} else {
+			$('#neg').hide();
+			$('#modelpA').hide();
+			$('#modelpB').hide();
+			$('#modelpC').show();
+			$('#modelpD').hide();
+		}
+	}
+
+	function activarModelD(){
+		$('#inici').hide();
+		$('#neg').hide();
+		$('#final').hide();
 		$('#modelpA').hide();
 		$('#modelpB').hide();
-		$('#modelpC').show();
+		$('#modelpC').hide();
+		$('#modelpD').show();
 	}
 
 	function activarIni(){
@@ -71,14 +141,37 @@ $(document).ready(function(){
 		$('#modelpA').hide();
 		$('#modelpB').hide();
 		$('#modelpC').hide();
+		$('#modelpD').hide();
 	}
 
 	function activarFin(){
 		$('#inici').hide();
 		$('#final').show();
+		$('#neg').hide();
 		$('#modelpA').hide();
 		$('#modelpB').hide();
 		$('#modelpC').hide();
+		$('#modelpD').hide();
+		if (g=='1') {
+			$('#triamodelp').show();
+			$('#triamodeln').hide();
+		}
+		if (g=='2') {
+			$('#triamodelp').hide();
+			$('#triamodeln').show();
+		}
+		if (g=='3') {
+			$('#triamodelp').show();
+			$('#triamodeln').hide();
+		}
+		if (g=='4') {
+			$('#triamodelp').show();
+			$('#triamodeln').hide();
+		}
+		if (g=='5') {
+			$('#triamodelp').hide();
+			$('#triamodeln').show();
+		}
 	}
 
 	$('#modelini').click(function() {activarIni()});
@@ -86,6 +179,7 @@ $(document).ready(function(){
 	$('#modelA').click(function() {activarModelA()});
 	$('#modelB').click(function() {activarModelB()});
 	$('#modelC').click(function() {activarModelC()});
+	$('#modelD').click(function() {activarModelD()});
 
 	$('#fase1').click(function() {iniciFase()});
 	$('#f').click(function() {finalFase()});
@@ -97,7 +191,7 @@ $(document).ready(function(){
 
 <body id="body">
 		<div id="header">
-			<p id=titol>FASE 4. TELETREBALL A CAUSA DE MOBILITAT REDUÏDA</p>
+			<p id=titol>FASE 4. TELETREBALL </p>
 		</div>
 
 		<div id="content">
@@ -106,8 +200,45 @@ $(document).ready(function(){
 				<h1> Fase 4 </h1>
 
 				<div id=enunciat>
-					Explicació de la Fase 4. <br>
+					Malauradament, després de dos anys on la pandemia provocada per la COVID19 semblava pràcticament erradicada, 
+					comença un nou brot en la teva ciutat, fet que provoca el tancament de tota la població en les seves 
+					respectives cases. Ara, ja no ens agafa de sorpresa així que la vida laboral continua amb l'opció del 
+					<span style="font-style: italic"> teletreball </span>. L'universitat i l'empresa on treballes no et permeten 
+					aplçar l'entrega del projecte així que hauràs de seguir treballant desde casa amb el portàtil que t'han deixat. <br>
+					<br>
+					Et trobes en la fase de l'optimització del model, així que com més tems hi dediquis, segurament, millor model aconseguiràs. 
+					
+					<p>
+						A continuació, trobaràs els resultats obtinguts durant l'optimització del model que has dut a terme. Per cada arquitectura que 
+						has decidit entrenar, trobaràs les gràfiques de<span style="font-style: italic">training accuracy</span> i de 
+						<span style="font-style: italic">validation accuracy</span> pels diferents hiperparàmetres que has provat. Et pots moure 
+						pels diferents blocs amb el menú de l'esquerra. Finalment, se't demana que especifiquis en la pestanya de 
+						<span style="font-style: italic">Definició Model Final</span> el model que consideres que és millor i que, per tant, serà
+						el que entregaràs. 
+						
+						<br>
+						<br>
+						Tens 5 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
+						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
+						et queda per poder acabar. 
+					</p>
+					<p id="prof4">
+						Tens la sort de viure en un entorn urbà on pots tenir accés a internet cada dia de l'any. <br>
+						Gràcies a aquest fet, podràs invertir molt de temps en l'optimització del model, fet que tindrà 
+						un impacte directe en l'<span style="font-style: italic">accuracy</span> d'aquest doncs ben segur
+						trobaràs quina és la millor opció. <br>
+						Aprofita-ho i aconsegueix el millor model possible!
+					</p>
 
+					<p id="negf4">
+						Desgraciadament, vius en un entorn rural i no tens la possibilitat de tenir accés a internet 
+						tots els dies de l'any. <br>
+						Com a conseqüència, tens menys temps per realitzar l'optimització del model per lo que no podràs 
+						veure tots els resultats dels models proposats, fet que tindrà 
+						un impacte negatiu en l'<span style="font-style: italic">accuracy</span> del model final. <br>
+						Fés el que puguis!
+					</p>
+					
 					<br>
 					<br>
 					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
@@ -116,24 +247,27 @@ $(document).ready(function(){
 
 				<div id=activitat>
 
-					<h2>Final de l'activitat en <span id="comptador"></span></h2>
+					<h2 id="timer">Final de l'activitat en <span id="comptador"></span></h2>
 					<br>
 					<br>
 
 					<div style="display: inline-block; vertical-align: top;">
 					<table id="menu">
 						<tr>
-							<td width="200px" height="40px" id="modelini">Explicació</td>
+							<td width="200px" height="40px" id="modelini">Inici</td>
 						  </tr>
 						<tr>
-						  <td width="200px" height="40px" id="modelA">Model A</td>
+						  <td width="200px" height="40px" id="modelA"> Model A</td>
 						</tr>
 						<tr>
-						  <td width="200px" height="40px" id="modelB">Model B</td>
+						  <td width="200px" height="40px" id="modelB"> Model B</td>
 						</tr>
 						<tr>
-						  <td width="200px" height="40px" id="modelC">Model C</td>
+						  <td width="200px" height="40px" id="modelC"> Model C</td>
 						</tr>
+						<tr>
+							<td width="200px" height="40px" id="modelD"> Model D</td>
+						  </tr>
 						<tr>
 							<td width="200px" height="40px" id="modelfin">Definició Model Final</td>
 						  </tr>
@@ -147,49 +281,47 @@ $(document).ready(function(){
 								<td width="1000px" height="20px"> </td>
 							</tr>
 							<tr>
-								<td> <h1>EXPLICACIÓ</h1> </td>
+								<td> <h1>INICI</h1> </td>
 							</tr>
 							<tr>
-								<td height="500px"> </td>
+								<td> <h2>Fés ús del menú de l'esquerra per moure't pels diferents models que has optmitzat. </h2><br>
+								<h2>Assegura't d'omplir el formulari de la pestanya de <span style="font-style: italic">Definició Model Final</span>
+								abans que acabi el temps.  </h2>
+								</td> 
+							</tr>
+							<tr>
+								<td height="50px"> </td>
 							</tr>
 						  </table>
 
+						  <table id="neg">
+							<tr>
+								<td width="1000px" height="10px"> </td>
+							</tr>
+							<tr>
+								<td> <p id="textneg">No tens l'opció de veure aquests resultats. Prova altres. <br>
+									Com vius en un entorn rural, no has tingut accés a internet tots 
+									els dies i no has pogut realitzar l'optimització d'aquest model. </p>
+								</td> 
+							</tr>
+							<tr>
+								<td height="10px"> </td>
+							</tr>
+						  </table>
+						 
+
 						<table id="modelpA">
 							<tr>
-								<td colspan="2" height="20px"> </td>
+								<td width = "1000px" colspan="2" height="20px"> </td>
 							</tr>
 							<tr>
-								<td colspan="2"> <h1>MODEL A</h1> </td>
+								<td colspan="2"> <h1>REGRESSIÓ LOGÍSITICA </h1> </td>
 							</tr>
 							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
+								<td colspan="2"> <h2> Versió simple </h2> </td>
 							</tr>
 							<tr>
-							  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-							  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
-							</tr>
-							<tr>
-								<td colspan="2" height="50px"> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
-							</tr>
-							<tr>
-								<td colspan="2" height="50px"> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							  <td colspan="2"> <img src="images/A.png" id="play" width="600px"> </td>
 							</tr>
 							<tr>
 								<td colspan="2" height="50px"> </td>
@@ -202,37 +334,13 @@ $(document).ready(function(){
 								<td colspan="2" height="20px"> </td>
 							</tr>
 							<tr>
-								<td colspan="2"> <h1>MODEL B</h1> </td>
+								<td width="1000px" colspan="2"> <h1>CLASSIFICADOR NAIVE DE BAYES</h1> </td>
 							</tr>
 							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
+								<td colspan="2"> <h2> Versió simple </h2> </td>
 							</tr>
 							<tr>
-							  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-							  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
-							</tr>
-							<tr>
-								<td colspan="2" height="50px"> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
-							</tr>
-							<tr>
-								<td colspan="2" height="50px"> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <h2> Us de </h2> </td>
-								<td width="500px"> <h2> Us de </h2> </td>
-							</tr>
-							<tr>
-								<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-								<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+							  <td colspan="2"> <img src="images/B.png" id="play" width="600px"> </td>
 							</tr>
 							<tr>
 								<td colspan="2" height="50px"> </td>
@@ -243,37 +351,56 @@ $(document).ready(function(){
 									<td colspan="2" height="20px"> </td>
 								</tr>
 								<tr>
-									<td colspan="2"> <h1>MODEL C</h1> </td>
+									<td colspan="2"> <h1>SUPPORT VECTOR MACHINE</h1> </td>
 								</tr>
 								<tr>
-									<td width="500px"> <h2> Us de </h2> </td>
-									<td width="500px"> <h2> Us de </h2> </td>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel lineal i C=0.01</span> </h2></td>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel lineal i C=2</span> </h2> </td>
 								</tr>
 								<tr>
-								  <td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-								  <td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
-								</tr>
-								<tr>
-									<td colspan="2" height="50px"> </td>
-								</tr>
-								<tr>
-									<td width="500px"> <h2> Us de </h2> </td>
-									<td width="500px"> <h2> Us de </h2> </td>
-								</tr>
-								<tr>
-									<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-									<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+								  <td width="500px"> <img src="images/Ca.png" id="play" width="400px"> </td>
+								  <td width="500px"> <img src="images/Cb.png" id="play" width="400px"> </td>
 								</tr>
 								<tr>
 									<td colspan="2" height="50px"> </td>
 								</tr>
 								<tr>
-									<td width="500px"> <h2> Us de </h2> </td>
-									<td width="500px"> <h2> Us de </h2> </td>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel sigmoid i C=0.01</span> </h2> </td>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel sigmoid i C=2</span> </h2> </td>
 								</tr>
 								<tr>
-									<td width="500px"> <img src="images/A.png" id="play" width="400px"> </td>
-									<td width="500px"> <img src="images/B.png" id="play" width="400px"> </td>
+									<td width="500px"> <img src="images/Cc.png" id="play" width="400px"> </td>
+									<td width="500px"> <img src="images/Cd.png" id="play" width="400px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2" height="50px"> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel rbf i C=0.01</span> </h2> </td>
+									<td width="500px"> <h2> Ús de <span style="font-style: italic">kernel rbf i C=2</span> </h2> </td>
+								</tr>
+								<tr>
+									<td width="500px"> <img src="images/Ce.png" id="play" width="400px"> </td>
+									<td width="500px"> <img src="images/Cf.png" id="play" width="400px"> </td>
+								</tr>
+								<tr>
+									<td colspan="2" height="50px"> </td>
+								</tr>
+	
+							  </table>
+
+							  <table id="modelpD">
+								<tr>
+									<td colspan="2" height="20px"> </td>
+								</tr>
+								<tr>
+									<td width="1000px" colspan="2"> <h1>RANDOM FOREST</h1> </td>
+								</tr>
+								<tr>
+									<td colspan="2"> <h2> <span style="font-style: italic">Accuracy</span> en funció del nombre de <span style="font-style: italic">trees</span> </h2> </td>
+								</tr>
+								<tr>
+								  <td colspan="2"> <img src="images/D.png" id="play" width="600px"> </td>
 								</tr>
 								<tr>
 									<td colspan="2" height="50px"> </td>
@@ -292,27 +419,44 @@ $(document).ready(function(){
 							<tr><form>
 								<td> <h2>Després de l'entrenament de diferents propostes, el model final que hem escollit <br>
 									és el de 
-								
-									<select id="triamodel">
+									<select id="triamodelp">
 									<option value="res"> </option>
-									  <option value="MA">Model A</option>
-									  <option value="MB">Model B</option>
-									  <option value="MC">Model C</option>
+									  <option value="A">Regressió Logística - Versió simple</option>
+									  <option value="B">Classificador Naive de Bayes - Versió simple</option>
+									  <option value="Ca">SVM - Ús de kernel lineal i C=0.01</option>
+									  <option value="Cb">SVM - Ús de kernel lineal i C=2</option>
+									  <option value="Cc">SVM - Ús de kernel sigmoid i C=0.01</option>
+									  <option value="Cd">SVM - Ús de kernel sigmoid i C=2</option>
+									  <option value="Ce">SVM - Ús de kernel rbf i C=0.01</option>
+									  <option value="Cf">SVM - Ús de kernel rbf i C=2</option>
+									  <option value="Da">RF - 8 trees</option>
+									  <option value="Db">RF - 16 trees</option>
+									  <option value="Dc">RF - 32 trees</option>
+									  <option value="Dd">RF - 64 trees</option>
+									  <option value="De">RF - 128 trees</option>
+									  <option value="Df">RF - 256 trees</option>
+									  <option value="Dg">RF - 512 trees</option>
+									  <option value="Dh">RF - 1048 trees</option>
+									  <option value="Di">RF - 2048 trees</option>
 									</select>
-									
-								amb la definició de 
-								
-									<select id="triamodel">
-									<option value="res"> </option>
-									  <option value="MA">Model A</option>
-									  <option value="MB">Model B</option>
-									  <option value="MC">Model Cfkjshsdjlkhfsjlkdn  shfksdjh  skjfh slkvsl </option>
-									</select>
+									<select id="triamodeln">
+										<option value="res"> </option>
+										  <option value="A">Regressió Logística - Versió simple</option>
+										  <option value="Da">RF - 8 trees</option>
+										  <option value="Db">RF - 16 trees</option>
+										  <option value="Dc">RF - 32 trees</option>
+										  <option value="Dd">RF - 64 trees</option>
+										  <option value="De">RF - 128 trees</option>
+										  <option value="Df">RF - 256 trees</option>
+										  <option value="Dg">RF - 512 trees</option>
+										  <option value="Dh">RF - 1048 trees</option>
+										  <option value="Di">RF - 2048 trees</option>
+										</select>
 								</form>	
 							</h2> </td>
 							</tr>
 							<tr>
-								<td height="30px"> </td>
+								<td height="70px"> </td>
 							</tr>
 							<tr>
 								<td> <input type="button" id="f" value="Confirma el model" > </td>
@@ -330,7 +474,17 @@ $(document).ready(function(){
 					<h2> Resultats de la Fase 4</h2>
 					<br>
 					<br>
-					RRRR
+					<p id="proff4"> 
+						Gràcies a que has tingut accés a internet tots els dies que has hagut de fer teletreball, has aconseguit 
+						fer una molt bona optimització del model i has seleccionat la millor opció que exiteix. Gràcies a això, 
+						el teu model tindrà una <span style="font-style: italic;">accuracy</span> molt alta.
+					</p>
+					<p id="negff4"> 
+						Malauradament, no has tingut accés a internet tots els dies que has hagut de fer teletreball i no has 
+						pogut fer una bona optimització del model. De fet, no has seleccionat la millor estructura perquè ni tan sols 
+						la tenies entre les opcions. Tanmateix, el model que has escollit és prou bo i l'<span style="font-style: italic;">accuracy</span>
+						del teu model no serà tan baixa. 
+					</p>
 
 					<p> <img src="images/play.png" id="fin4" width="40px"> </p>
 				</div>
