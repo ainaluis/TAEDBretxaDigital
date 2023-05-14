@@ -13,10 +13,47 @@
 $(document).ready(function(){
 	$('#activitat').hide();
 	$('#resultats').hide();
+	let g = localStorage.getItem("grup");
+	if (g=='1') {
+		$('#prof5').show();
+		$('#negf5').hide();
+	}
+	if (g=='2') {
+		$('#prof5').hide();
+		$('#negf5').show();
+	}
+	if (g=='3') {
+		$('#prof5').hide();
+		$('#negf5').show();
+	}
+	if (g=='4') {
+		$('#prof5').hide();
+		$('#negf5').show();
+	}
+	if (g=='5') {
+		$('#prof5').hide();
+		$('#negf5').show();
+	}
+
 
 	function iniciFase(){
 		$('#enunciat').hide();
 		$('#activitat').show();
+		if (g=='1') {
+			document.getElementById("acc").innerHTML = '95%';
+		}
+		if (g=='2') {
+			document.getElementById("acc").innerHTML = '65%';
+		}
+		if (g=='3') {
+			document.getElementById("acc").innerHTML = '75%';
+		}
+		if (g=='4') {
+			document.getElementById("acc").innerHTML = '60%';
+		}
+		if (g=='5') {
+			document.getElementById("acc").innerHTML = '35%';
+		}
 	}
 
 	$('#fase1').click(function() {iniciFase()});
@@ -38,18 +75,41 @@ $(document).ready(function(){
 
 				<div id=enunciat>
 					Després de 3 mesos de treball en el projecte, ha arribat el moment de l'entrega final. 
-					Per acabar de preparar el model final,  <br>
+					Per acabar de preparar el model final i obtenir les mètriques de presició final, l'empresa et facilita
+					un nou dataset molt més gran i has de fer un nou entrenament per acabar d'ajustar nous hiperparàmetres, 
+					agafant de base el model escollit en la fase anterior. 
+					
+					<br>
+					<p id="prof5">
+						Gràcies a la teva alta economia, tens una gran quantitat de contactes que et faciliten GPUs per a realitzar aquest procés. <br>
+						Aquest fet té un impacte positiu en l'<span style="font-style: italic;">accuracy</span> final del model. <br>
+					</p>
+
+					<p id="negf5">
+						Degut a la teva baixa economia, no tens contactes que et puguin facilitar GPUs, així que intentaràs realitzar aquest 
+						procés fent ús de CPUs, lo qual és impossible. <br>
+						Aquest fet té un impacte negatiu en l'<span style="font-style: italic;">accuracy</span> final del model. <br>
+					</p>
+
+					<br>
+					<p>
+						A continuació podràs veure quina és l'<span style="font-style: italic;">accuracy</span> final del teu model. 
+					</p>
 
 					
 				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
 				</div>
 
-				<div id=activitat>
-
+				<div id=activitat style="text-align: center;">
 					<br>
 					<br>
+					<br>
+					<br>
+					L'<span style="font-style: italic;">accuracy</span> del model final és del 
+					<br>
+					<br>
+					<strong> <span style="color:blue; font-size: 60px;"id="acc"></span> </strong>
 
-					BBB
 				</div>
 
 
