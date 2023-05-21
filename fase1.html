@@ -50,7 +50,7 @@ $(document).ready(function(){
 		localStorage.setItem("num", "");
 		$('#enunciat').hide();
 		$('#activitat').show();
-		let temps = 30;
+		let temps = 300;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -192,21 +192,21 @@ $(document).ready(function(){
 
 				<div id=enunciat>
 					
-					El projecte que esteu a punt de realitzar és realment molt interessant. Ara bé, hi ha un petit problem ja que 
-					l'empresa que el demana és danesa així que les instruccions i bases del projecte està redactades en danès. Així 
-					doncs, abans de poder començar el projecte en sí, et demanen que tinguis una mica de noció d'aspectes més tècnics
-					d'aquest, havent de traduir unes frases del danès al català.
+					El projecte que esteu a punt de realitzar us motiva molt. L'empresa que el porta és danesa i demana als
+					estudiants que es comencin a familiaritzar amb les bases d'aquest abans d'entrar a treballar-hi. La tasca
+					es simple: llegir-se i comprendre les instruccions i bases del projecte. Només heu de llegir un fitxer, però aquest
+					és enviat en danés.
 					
 					<p>
 						A continuació, trobaràs 5 frases en danès que s'han de traduir al català. Per poder saber si la traducció és 
-						correcte, existeix un botó al clicar-lo t'ho indica. És molt rellevant aconseguir totes les correccions correctes
-						perquè si entens millor quin és l'objectiu de projecte, podràs desenvolupar un millor model. El número de frases 
+						correcte, existeix un botó que, al clicar-lo, t'ho indica. És molt rellevant aconseguir totes les correccions correctes
+						perquè si entens millor quin és l'objectiu de projecte, podràs desenvolupar un millor model. El nombre de frases 
 						correctament traduides trindrà un efecte directe en l'accuracy final del model.  
 						<br>
 						<br>
-						Tens 3 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
-						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
-						et queda per poder acabar. Si aconsegueixes totes les traduccions correctes abans que el temps acabi, hauràs 
+						Tens 5 minuts per realizar aquesta fase. El temps començarà a comptar quan li donis click a la fletxa.
+						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que  et queda per poder acabar. 
+						Si aconsegueixes totes les traduccions correctes abans que el temps acabi, hauràs 
 						d'esperar per tal de poder avançar. 
 					</p>
 					<p id="prof1">
@@ -221,7 +221,7 @@ $(document).ready(function(){
 
 					<br>
 					<br>
-					<h2> Important: Teniu 3 minuts per completar l'activitat </h2>
+					<h2> Important: Teniu 5 minuts per completar l'activitat </h2>
 				<p> <img src="images/play.png" id="fase1" width="40px"> </p>
 				</div>
 
@@ -232,7 +232,7 @@ $(document).ready(function(){
 						<br>
 						correctament traduides trindrà un efecte directe en l'accuracy final del model.  
 						<br>
-						Tens 3 minuts per aconseguir-ho! 
+						Tens 5 minuts per aconseguir-ho! 
 						<br>
 						<br>
 

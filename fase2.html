@@ -72,15 +72,14 @@ $(document).ready(function(){
 		$('#enunciat').hide();
 		$('#activitat').show();
 		$('#faltalogin').hide();
-		let temps = 30;
+		let temps = 300;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
 			document.getElementById("comptador").innerHTML = mins.toString().padStart(2, '0') + ':' + segs.toString().padStart(2, '0');
 			if (temps == 0) {
 				clearInterval(comptador);
-				$('#activitat').hide();
-	      $('#resultats').show();
+				finalFase();
 			}
 			temps--;
 		}, 1000);
@@ -185,19 +184,18 @@ $(document).ready(function(){
 				<div id=enunciat>
 					Després d'entendre quines son les bases del projecte, l'empresa danesa t'ofereix la possibilitat de viatjar a 
 					Alemanya per tal d'assistir a una conferència on es desenvolupa l'explicació d'una recerca sobre el càncer
-					de mama. Es considera de gran prestigi anar-hi i els coneixements que hi pots obtenir són de gran qualitat. 
-					Tanmateix, ens trobem en una època de risc pel COVID i els desplaçaments entre països està limitat, de manera 
+					de mama. Es considera de gran prestigi anar-hi i els coneixements que hi pots obtenir són de gran qualitat i suposarien
+					una gran diferència en l'abast que pot tenir el teu projecte. 
+					Tanmateix, ens trobem en una època de risc pel COVID i els desplaçament entre països està limitat, de manera 
 					que és necessari el <span style="font-style: italic"> Passaport COVID </span> per poder viatjar. 
 					
 					<p>
 						A continuació, trobaràs un formulari de <span style="font-style: italic"> login </span> que hauràs de completar per tal 
-						de poder el certificat <span style="font-style: italic"> Passaport COVID </span> que necessites per a poder viatjar. Asistir 
-						a la conferència a Alemanya és de gran importància perquè obtindràs molts coneixements essencials pel projecte i anar 
-						o no al viatge depèn únicament de si tens aquest document. 
+						de poder obtenir el certificat <span style="font-style: italic"> Passaport COVID </span> que necessites per a poder viatjar. 
 						
 						<br>
 						<br>
-						Tens 3 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
+						Tens 5 minuts per realizar aquesta fase. El temps començara a comptar quan li donis click a la fletxa.
 						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
 						et queda per poder acabar. Si aconsegueixes el <span style="font-style: italic"> Passaport COVID </span> abans que el temps acabi, hauràs 
 						d'esperar per tal de poder avançar. 
@@ -205,7 +203,7 @@ $(document).ready(function(){
 					<p id="prof2">
 						Per iniciar sessió et cal un usuari i una contrasenya. <br>
 						L'usuari és el dígit que identifica el teu grup. <br>
-						La contrasenya és el codi que us hem donat al inici amb la presentació de les característiques del teu grup. <br>
+						La contrasenya és el codi que us hem donat a l'inici, on hi havia la presentació de les característiques del teu grup. <br>
 					</p>
 
 					<p id="negf2">

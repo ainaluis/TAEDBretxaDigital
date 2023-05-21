@@ -46,7 +46,7 @@ $(document).ready(function(){
 		$('#modelpC').hide();
 		$('#modelpB').hide();
 		$('#modelpD').hide();
-		let temps = 30;
+		let temps = 300;
 		let comptador = setInterval(function() {
 			let mins = Math.floor(temps / 60);
 			let segs = temps % 60;
@@ -68,12 +68,12 @@ $(document).ready(function(){
 			$('#negff4').hide();
 		}
 		if (g=='2') {
-			$('#proff4').show();
-			$('#negff4').hide();
-		}
-		if (g=='3') {
 			$('#proff4').hide();
 			$('#negff4').show();
+		}
+		if (g=='3') {
+			$('#proff4').show();
+			$('#negff4').hide();
 		}
 		if (g=='4') {
 			$('#proff4').show();
@@ -201,12 +201,12 @@ $(document).ready(function(){
 
 				<div id=enunciat>
 					Malauradament, després de dos anys on la pandemia provocada per la COVID19 semblava pràcticament erradicada, 
-					comença un nou brot en la teva ciutat, fet que provoca el tancament de tota la població en les seves 
-					respectives cases. Ara, ja no ens agafa de sorpresa així que la vida laboral continua amb l'opció del 
-					<span style="font-style: italic"> teletreball </span>. L'universitat i l'empresa on treballes no et permeten 
-					aplçar l'entrega del projecte així que hauràs de seguir treballant desde casa amb el portàtil que t'han deixat. <br>
+					comença un nou brot en la teva ciutat, fet que provoca un nou confinament. Ja no ens agafa per sorpresa,
+					així que la vida laboral continua amb l'opció del <span style="font-style: italic"> teletreball </span>. 
+					L'universitat i l'empresa on treballes no et permeten aplaçar l'entrega del projecte, així que hauràs de 
+					seguir treballant desde casa amb el portàtil que t'han deixat. <br>
 					<br>
-					Et trobes en la fase de l'optimització del model, així que com més tems hi dediquis, segurament, millor model aconseguiràs. 
+					Et trobes en la fase de l'optimització del model, així que com més tems hi dediquis, probablement millor model aconseguiràs. 
 					
 					<p>
 						A continuació, trobaràs els resultats obtinguts durant l'optimització del model que has dut a terme. Per cada arquitectura que 
@@ -218,14 +218,14 @@ $(document).ready(function(){
 						
 						<br>
 						<br>
-						Tens 5 minuts per realizar aquesta fase. El temps començara a comptar quan lo donis click a la fletxa.
+						Tens 5 minuts per realizar aquesta fase. El temps començarà a contar quan li donis click a la fletxa.
 						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
 						et queda per poder acabar. 
 					</p>
 					<p id="prof4">
 						Tens la sort de viure en un entorn urbà on pots tenir accés a internet cada dia de l'any. <br>
 						Gràcies a aquest fet, podràs invertir molt de temps en l'optimització del model, fet que tindrà 
-						un impacte directe en l'<span style="font-style: italic">accuracy</span> d'aquest doncs ben segur
+						un impacte directe en l'<span style="font-style: italic">accuracy</span> d'aquest, doncs ben segur
 						trobaràs quina és la millor opció. <br>
 						Aprofita-ho i aconsegueix el millor model possible!
 					</p>
@@ -233,9 +233,9 @@ $(document).ready(function(){
 					<p id="negf4">
 						Desgraciadament, vius en un entorn rural i no tens la possibilitat de tenir accés a internet 
 						tots els dies de l'any. <br>
-						Com a conseqüència, tens menys temps per realitzar l'optimització del model per lo que no podràs 
-						veure tots els resultats dels models proposats, fet que tindrà 
-						un impacte negatiu en l'<span style="font-style: italic">accuracy</span> del model final. <br>
+						Com a conseqüència, tens menys temps per realitzar l'optimització del model, fet que et portarà
+						a no poder provar tots els models que haguéssis pogut provar amb una connexió més estable. Això
+						tindrà un impacte negatiu en l'<span style="font-style: italic">accuracy</span> del model final. <br>
 						Fés el que puguis!
 					</p>
 					
