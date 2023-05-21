@@ -107,8 +107,9 @@ $(document).ready(function(){
 		}
 	}
 
+
 	function validarPassaport() {
-	  const inputs = document.getElementsByTagName("input");
+	  	const inputs = document.getElementsByTagName("input");
 		let errors = 0;
 	  for (let i = 0; i < inputs.length; i++) {
 	    if (inputs[i].value === "") {
@@ -182,11 +183,11 @@ $(document).ready(function(){
 				<h1> Fase 2 </h1>
 
 				<div id=enunciat>
-					Després d'entendre quines son les bases del projecte, l'empresa danesa t'ofereix la possibilitat de viatjar a 
+					Després d'entendre quines són les bases del projecte, l'empresa danesa t'ofereix la possibilitat de viatjar a 
 					Alemanya per tal d'assistir a una conferència on es desenvolupa l'explicació d'una recerca sobre el càncer
 					de mama. Es considera de gran prestigi anar-hi i els coneixements que hi pots obtenir són de gran qualitat i suposarien
 					una gran diferència en l'abast que pot tenir el teu projecte. 
-					Tanmateix, ens trobem en una època de risc pel COVID i els desplaçament entre països està limitat, de manera 
+					Tanmateix, ens trobem en una època de risc per la COVID i el desplaçament entre països està limitat, de manera 
 					que és necessari el <span style="font-style: italic"> Passaport COVID </span> per poder viatjar. 
 					
 					<p>
@@ -195,7 +196,7 @@ $(document).ready(function(){
 						
 						<br>
 						<br>
-						Tens 5 minuts per realizar aquesta fase. El temps començara a comptar quan li donis click a la fletxa.
+						Tens 5 minuts per realitzar aquesta fase. El temps començarà a comptar quan li donis click a la fletxa.
 						En tot moment, a baix a l'esquerra, trobaràs un indicador del temps que 
 						et queda per poder acabar. Si aconsegueixes el <span style="font-style: italic"> Passaport COVID </span> abans que el temps acabi, hauràs 
 						d'esperar per tal de poder avançar. 
@@ -209,7 +210,7 @@ $(document).ready(function(){
 					<p id="negf2">
 						Per iniciar sessió et cal un usuari i una contrasenya. <br>
 						L'usuari és el dígit que identifica el teu grup. <br>
-						No tens accés a la contrasenya. Ara vé, veuràs que existeix l'opció de seguir sense fer el login. <br>
+						No tens accés a la contrasenya. Ara bé, veuràs que existeix l'opció de seguir sense fer el login. <br>
 					</p>
 
 					<br>
@@ -300,7 +301,7 @@ $(document).ready(function(){
 							</tr>
 							<tr>
 								<td colspan=1 width=20px> </td>
-								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
+								<td> <input type="text" id="data1" placeholder="Naixament (DD/MM/AAAA)"> </td>
 								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
 								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
 								<td> <input type="text" id="data" placeholder="Naixament (DD/MM/AAAA)"> </td>
@@ -319,11 +320,11 @@ $(document).ready(function(){
 					<br>
 					<div id=formularierror> Assegura't que has omplert tots els camps. Tens <span id="buits"></span> espais buits.</div>
 					<div id=usuarimalament> L'usuari no és correcte. Assegura't que introdueixes el dígit del grup al qual pertanys. </div>
-					<div id=contrasenyamalament> La contrasenya no és correcte. Torna-ho a intentar o segueix sense començar sessió. </div>
+					<div id=contrasenyamalament> La contrasenya no és correcta. Torna-ho a intentar o segueix sense començar sessió. </div>
 
 					<div id="faltalogin">
 						<p>Estàs intentant demanar el <span style="font-style: italic"> Passaport COVID </span> sense entrar en la teva sessió personal.<br>
-						Aquesta funció no és possible. <br>Torna enrere i fes <span style="font-style: italic"> login</span>.</p>
+						Aquesta funció no és possible. <br>Torna enrere i fés <span style="font-style: italic"> login</span>.</p>
 						<table>
 						<td> <img src="images/play.png" id="back" width="40px" style="transform: rotate(180deg);"> </td>
 						</table>
@@ -333,11 +334,11 @@ $(document).ready(function(){
 							<br>
 							<h2> No existeix l'opció de demanar el <span style="font-style: italic"> Passaport COVID </span> sense haver entrat en la teva sessió. </h2>
 							<br>
-							<h2> Estàs patint una bretxa digital d'ús: tens accés a la tecnologia però no saps con utilitzar-la.</h2>
+							<h2> Estàs patint una bretxa digital d'ús: tens accés a la tecnologia, però no saps com utilitzar-la.</h2>
 							<br>
-							<h2> Ja no pots fer més intents. Espera a que acabi el temps per donar per finalitzada la fase. </h2>
+							<h2> Ja no pots fer més intents. Espera que acabi el temps per donar per finalitzada la fase. </h2>
 							<br>
-							<h2> Ho sentim, però no podràs viatjar a Almenya per anar a la conferència.</h2>
+							<h2> Ho sentim, però no podràs viatjar a Alemanya per anar a la conferència.</h2>
 							<br>
 							<br>
 
@@ -357,14 +358,14 @@ $(document).ready(function(){
 					<br>
 					<br>
 					<p id="proff2"> 
-						Gràcies a que se t'ha facilitat el codi al inici, has pogut ser capaç de fer <span style="font-style: italic;">login</span>
-						i solicitar el document. Podràs viatjar a Alemanya i tots els coneixements que obtindràs t'ajudaran a augmentar 
+						Gràcies al fet que se t'ha facilitat el codi a l'inici, has pogut ser capaç de fer <span style="font-style: italic;">login</span>
+						i sol·licitar el document. Podràs viatjar a Alemanya i tots els coneixements que obtindràs t'ajudaran a augmentar 
 						l'<span style="font-style: italic;">accuracy</span> del teu model final. 
 
 					</p>
 					<p id="negff2"> 
-						No se t'ha facilitat el codi al inici i tot i tenir accés a la tecnologia, no has sapigut fer un ús d'ella. Has patit una bretxa 
-						digital d'ús. No podràs viatjar a Alemanya i, com a conseqüencia, la falta de coneixements que tindràs provocarà que 
+						No se t'ha facilitat el codi a l'inici i tot i tenir accés a la tecnologia, no has sabut fer un ús d'ella. Has patit una bretxa 
+						digital d'ús. No podràs viatjar a Alemanya i, com a conseqüència, la falta de coneixements que tindràs provocarà que 
 						<span style="font-style: italic;">l'accuracy</span> del teu model final sigui més baixa. 
 					</p>
 
